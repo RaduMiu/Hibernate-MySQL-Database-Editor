@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<hibernate-reverse-engineering>
+	<schema-selection match-catalog="proiect" />
+	<table-filter match-name="conturi" />
+	<table-filter match-name="clienti" />
+	<table-filter match-name="asocieri_client_cont" />
+</hibernate-reverse-engineering>

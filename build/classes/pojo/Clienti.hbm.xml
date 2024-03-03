@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<hibernate-mapping>
+	<class name="pojo.Clienti" table="clienti" catalog="proiect"
+		optimistic-lock="version">
+		<id name="idclient" type="java.lang.Integer">
+			<column name="idclienti" />
+			<generator class="identity" />
+		</id>
+		<property name="nume" type="string">
+			<column name="nume" length="45" />
+		</property>
+		<property name="prenume" type="string">
+			<column name="prenume" length="45" />
+		</property>
+		<property name="adresa" type="string">
+			<column name="adresa" length="45" />
+		</property>
+		<property name="telefon" type="string">
+			<column name="telefon" length="45" />
+		</property>
+		<property name="email" type="string">
+			<column name="email" length="45" />
+		</property>
+		<set name="consultaties" table="asocieri_client_cont"
+			inverse="true" lazy="true" fetch="select">
+			<key>
+				<column name="idclient" />
+			</key>
+			<one-to-many class="pojo.AsociereClientCont" />
+		</set>
+	</class>
+</hibernate-mapping>

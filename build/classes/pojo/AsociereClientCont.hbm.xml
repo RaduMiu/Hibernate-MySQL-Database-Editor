@@ -1,0 +1,23 @@
+<?xml version="1.0"?>
+<hibernate-mapping>
+	<class name="pojo.AsociereClientCont"
+		table="asocieri_client_cont" catalog="proiect"
+		optimistic-lock="version">
+		<id name="idasociere" type="java.lang.Integer">
+			<column name="idasociere" />
+			<generator class="identity" />
+		</id>
+		<many-to-one name="conturi" class="pojo.Conturi"
+			fetch="select">
+			<column name="idcont" />
+		</many-to-one>
+		<many-to-one name="clienti" class="pojo.Clienti"
+			fetch="select">
+			<column name="idclient" />
+		</many-to-one>
+
+		<property name="rolclient" type="string">
+			<column name="rolclient" length="45" />
+		</property>
+	</class>
+</hibernate-mapping>

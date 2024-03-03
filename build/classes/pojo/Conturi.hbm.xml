@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+
+
+<hibernate-mapping>
+	<class name="pojo.Conturi" table="conturi" catalog="proiect"
+		optimistic-lock="version">
+		<id name="idcont" type="java.lang.Integer">
+			<column name="idconturi" />
+			<generator class="identity" />
+		</id>
+		<property name="iban" type="string">
+			<column name="iban" length="45" />
+		</property>
+		<property name="date" type="date">
+			<column name="date" length="45" />
+		</property>
+		<property name="tipCont" type="string">
+			<column name="tipCont" length="45" />
+		</property>
+		<property name="sold" type="float">
+			<column name="sold" length="45" />
+		</property>
+		<set name="consultaties" table="asocieri_client_cont" inverse="true"
+			lazy="true" fetch="select">
+			<key>
+				<column name="idcont" />
+			</key>
+			<one-to-many class="pojo.AsociereClientCont" />
+		</set>
+	</class>
+</hibernate-mapping>
